@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize-typescript";
 import * as models from './models'
 
-const dialect = "mysql";
+const dialect = "postgres";
 
-const sequelize = new Sequelize("exampledb", "root", "Teste@123456", {
+const sequelize = new Sequelize("dvdrental", "postgres", "@89102447", {
     host: "localhost",
     dialect: dialect,
     define: {

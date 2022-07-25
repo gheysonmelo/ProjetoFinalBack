@@ -11,7 +11,7 @@ abstract class SequelizeBaseRepository<Input, Output>
     public async getAll(attributes?: string[]): Promise<Output[]> {
         // @ts-ignore
         return this.model.findAll({
-            attributes,
+            attributes, include: {all: true}
         });
     }
 
