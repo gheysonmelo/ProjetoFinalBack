@@ -7,6 +7,14 @@ class CustomerRepository extends BaseRepository<CustomerInput, CustomerOutput> i
   constructor() {
     super(Customer);
   };
+
+//   public async getAll(attributes?: string[]): Promise<Output[]> {
+//     // @ts-ignore
+//     return this.model.findAll({
+//         attributes,
+//     });
+// };
+
 };
 
 export default CustomerRepository;
