@@ -11,7 +11,9 @@ import {
     Default,
 } from "sequelize-typescript";
 
-@Table
+@Table({
+    modelName: 'user'
+})
 class User extends Model {
     @Length({ min: 3, max: 255 })
     @AllowNull(false)

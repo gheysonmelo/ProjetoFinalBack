@@ -13,7 +13,7 @@ abstract class SequelizeBaseRepository<Input, Output>
         return this.model.findAll({
             attributes,
         });
-    }
+    };
 
     public async getById(id: number, attributes?: string[]): Promise<Output> {
         // @ts-ignore

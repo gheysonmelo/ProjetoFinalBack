@@ -1,2 +1,11 @@
 export { default as BaseRepository } from './BaseRepository';
 export { default as UserRepository } from './UserRepository';
+export { default as InventoryRepository } from './InventoryRepository';
+export { default as RentalRepository } from './RentalRepository';
+export { default as PaymentRepository } from './PaymentRepository';
+export { default as StaffRepository } from './StaffRepository';
+export { default as CustomerRepository } from './CustomerRepository';
+export { default as AddressRepository } from './AddressRepository';
+export { default as CityRepository } from './CityRepository';
+export { default as CountryRepository } from './CountryRepository';
+export { default as StoreRepository } from './StoreRepository';

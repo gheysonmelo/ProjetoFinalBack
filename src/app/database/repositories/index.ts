@@ -1,2 +1,11 @@
 export { default as IBaseRepository } from './IBaseRepository';
 export { default as IUserRepository } from './IUserRepository';
+export { default as IInventoryRepository } from './IInventoryRepository';
+export { default as IRentalRepository } from './IRentalRepository';
+export { default as IPaymentRepository } from './IPaymentRepository';
+export { default as IStaffRepository } from './IStaffRepository';
+export { default as ICustomerRepository } from './ICustomerRepository';
+export { default as IAddressRepository } from './IAddressRepository';
+export { default as ICityRepository } from './ICityRepository';
+export { default as ICountryRepository } from './ICountryRepository';
+export { default as IStoreRepository } from './IStoreRepository';
