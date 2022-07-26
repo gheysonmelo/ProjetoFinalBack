@@ -18,17 +18,17 @@ import { Actor, Film } from ".";
 
 @Table({modelName: "film_actor"})
 class FilmActor extends Model {
-    @ForeignKey(() => Film)
-    @Column({ 
-        primaryKey: true, 
+    @ForeignKey(() => Actor)
+    @Column({
+        primaryKey: true,
         type: DataType.INTEGER 
     })
-    film_id!: number;
+    actor_id!: number;
 
-    @ForeignKey(() => Actor)
+    @ForeignKey(() => Film)
     @AllowNull(false)
     @Column({ type: DataType.INTEGER })
-    actor_id!: number;
+    film_id!: number;
 
     @Default(new Date())
     @AllowNull(false)
@@ -45,9 +45,6 @@ class FilmActor extends Model {
 
     // @UpdatedAt
     // updatedAt!: Date;
-
-    // Relations
-
 };
 
 export default FilmActor;

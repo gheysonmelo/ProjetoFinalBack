@@ -15,7 +15,7 @@ import {
     BelongsTo,
     BelongsToMany,
 } from "sequelize-typescript";
-import { Actor, Category, FilmCategory, Language } from ".";
+import { Actor, Category, FilmActor, FilmCategory, Language } from ".";
 
 @Table({modelName: "film"})
 class Film extends Model {
@@ -90,11 +90,11 @@ class Film extends Model {
     @BelongsTo(() => Language)
     language!: Language;
 
-    @BelongsTo(() => Actor)
-    actor!: Actor;
-
     @BelongsToMany(() => Category, () => FilmCategory)
     categories!: Category[];
+
+    @BelongsToMany(() => Actor, () => FilmActor)
+    actors!: Actor[];
 };
 
 export default Film;

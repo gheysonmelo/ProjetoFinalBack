@@ -13,8 +13,9 @@ import {
     DataType,
     HasMany,
     BelongsTo,
+    BelongsToMany,
 } from "sequelize-typescript";
-import { Film } from ".";
+import { Film, FilmActor } from ".";
 
 @Table({modelName: "actor"})
 class Actor extends Model {
@@ -50,8 +51,8 @@ class Actor extends Model {
     // updatedAt!: Date;
 
     // Relations
-    @BelongsTo(() => Film)
-    film!: Film;
+    @BelongsToMany(() => Film, () => FilmActor)
+    films!: Film[];
 };
 
 export default Actor;
