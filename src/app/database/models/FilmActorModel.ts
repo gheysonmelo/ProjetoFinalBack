@@ -12,26 +12,23 @@ import {
     AutoIncrement,
     DataType,
     HasMany,
-    BelongsTo,
+    ForeignKey,
 } from "sequelize-typescript";
-import { Film } from ".";
+import { Actor, Film } from ".";
 
-@Table({modelName: "actor"})
-class Actor extends Model {
-    @AutoIncrement
+@Table({modelName: "film_actor"})
+class FilmActor extends Model {
+    @ForeignKey(() => Film)
     @Column({ 
         primaryKey: true, 
         type: DataType.INTEGER 
     })
+    film_id!: number;
+
+    @ForeignKey(() => Actor)
+    @AllowNull(false)
+    @Column({ type: DataType.INTEGER })
     actor_id!: number;
-
-    @AllowNull(false)
-    @Column({ type: DataType.STRING(45) })
-    first_name!: string;
-
-    @AllowNull(false)
-    @Column({ type: DataType.STRING(45) })
-    last_name!: string;
 
     @Default(new Date())
     @AllowNull(false)
@@ -50,8 +47,7 @@ class Actor extends Model {
     // updatedAt!: Date;
 
     // Relations
-    @BelongsTo(() => Film)
-    film!: Film;
+
 };
 
-export default Actor;
+export default FilmActor;

@@ -47,7 +47,6 @@ class FilmCategory extends Model {
     // updatedAt!: Date;
 
     // Relations
-
 };
 
 export default FilmCategory;
