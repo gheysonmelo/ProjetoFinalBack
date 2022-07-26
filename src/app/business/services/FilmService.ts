@@ -14,6 +14,10 @@ class FilmService {
         return await this.FilmRepository.getAll(attributes);
     };
 
+    public getAllWithRelations = async (): Promise<FilmOutput[]> => {
+        return await this.FilmRepository.getAllWithRelations();
+    };
+    
     public getAllWithLanguage = async (): Promise<FilmOutput[]> => {
         return await this.FilmRepository.getAllWithLanguage();
     };

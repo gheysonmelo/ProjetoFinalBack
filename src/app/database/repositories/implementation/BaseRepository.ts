@@ -11,7 +11,7 @@ abstract class SequelizeBaseRepository<Input, Output>
     public async getAll(attributes?: string[]): Promise<Output[]> {
         // @ts-ignore
         return this.model.findAll({
-            attributes, include: {all: true}
+            attributes,
         });
     }
 
@@ -27,6 +27,13 @@ abstract class SequelizeBaseRepository<Input, Output>
         }
 
         throw new ResourceNotFoundError();
+    }
+
+    public async getAllWithRelations(): Promise<Output[]> {
+        // @ts-ignore
+        return this.model.findAll({
+            include: {all: true, nested: true}
+        });
     }
 
     public async create(data: any): Promise<Model> {

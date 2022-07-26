@@ -14,6 +14,7 @@ class FilmRepository
         super(Film);
     };
 
+    // only for testes
     public async getAllWithLanguage(): Promise<FilmOutput[]> {
         // @ts-ignore
         return this.model.findAll({include: Language});

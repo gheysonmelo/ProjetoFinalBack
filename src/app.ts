@@ -10,7 +10,7 @@ import router from '@/app/api/routes';
 import { connectDatabase } from "@/app/database";
 
 const app: Application = express();
-const port: number = 3335;
+const port: number = 3380;
 
 app.use(bodyParser.json());
 

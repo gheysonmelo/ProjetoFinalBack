@@ -10,6 +10,13 @@ class FilmController {
         res.status(200).send(result);
     };
 
+    public async getAllWithRelations(req: Request, res: Response): Promise<void> {
+        const filmService = container.resolve(FilmService);
+        const result = await filmService.getAllWithRelations();
+
+        res.status(200).send(result);
+    };
+
     public async getAllWithLanguage(req: Request, res: Response): Promise<void> {
         const filmService = container.resolve(FilmService);
         const result = await filmService.getAllWithLanguage();

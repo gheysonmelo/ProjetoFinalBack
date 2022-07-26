@@ -1,4 +1,5 @@
 import { 
+    IActorRepository,
     ICategoryRepository, 
     IFilmRepository, 
     ILanguageRepository, 
@@ -6,6 +7,7 @@ import {
 } from '@/app/database/repositories';
 
 import { 
+    ActorRepository,
     CategoryRepository, 
     FilmRepository, 
     LanguageRepository, 
@@ -18,3 +20,4 @@ container.registerSingleton<IUserRepository>("UserRepository", UserRepository);
 container.registerSingleton<IFilmRepository>("FilmRepository", FilmRepository);
 container.registerSingleton<ILanguageRepository>("LanguageRepository", LanguageRepository);
 container.registerSingleton<ICategoryRepository>("CategoryRepository", CategoryRepository);
+container.registerSingleton<IActorRepository>("ActorRepository", ActorRepository);
