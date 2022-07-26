@@ -1,7 +1,8 @@
+import Query from "@/shared/types/interfaces/Query";
 import { Model } from "sequelize-typescript";
 
 interface IBaseRepository<Input, Output> {
-    getAll(attributes?: string[]): Promise<Output[]>;
+    getAll(query: Query, attributes?: string[]): Promise<Output[]>;
 
     getById(id: number, attributes?: string[]): Promise<Output>;
 

@@ -2,6 +2,7 @@ import { inject, injectable } from 'tsyringe';
 import  { ICustomerRepository } from '../../database/repositories/';
 import { CustomerInput, CustomerOutput } from '@/shared/types/interfaces/Customer'
 import { Model } from 'sequelize-typescript';
+import Query from '@/shared/types/interfaces/Query';
 
 @injectable()
 class CustomerService {
@@ -10,8 +11,8 @@ class CustomerService {
         private readonly CustomerRepository: ICustomerRepository
     ) {}       
            
-    public getAll = async (): Promise<CustomerOutput[]> => {
-        return await this.CustomerRepository.getAll();
+    public getAll = async (query: Query): Promise<CustomerOutput[]> => {
+        return await this.CustomerRepository.getAll(query);
     };
 
     public getById = async (id: number): Promise<CustomerOutput> => {

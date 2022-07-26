@@ -2,6 +2,7 @@ import { inject, injectable } from 'tsyringe';
 import  { IRentalRepository } from '../../database/repositories/';
 import { RentalInput, RentalOutput } from '@/shared/types/interfaces/Rental'
 import { Model } from 'sequelize-typescript';
+import Query from '@/shared/types/interfaces/Query';
 
 @injectable()
     class RentalService {
@@ -11,8 +12,8 @@ import { Model } from 'sequelize-typescript';
         ) {}       
         
         
-public getAll = async (): Promise<RentalOutput[]> => {
-    return await this.RentalRepository.getAll();
+public getAll = async (query: Query): Promise<RentalOutput[]> => {
+    return await this.RentalRepository.getAll(query);
 };
 
 public getById = async (id: number): Promise<RentalOutput> => {

@@ -1,3 +1,4 @@
+import Query from '@/shared/types/interfaces/Query';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { RentalService } from '../../business/services';
@@ -5,9 +6,19 @@ import { RentalService } from '../../business/services';
 class RentalController {
 
     public async getAll(req: Request, res:Response): Promise<void> {
+
+        const { size, page, sort, order, ...filters } = req.query;
         
+        const query: Query = {
+            size: parseInt(req.query.size as string),
+            page: parseInt(req.query.page as string),
+            sort: req.query.sort as string,
+            order: req.query.order as string,
+            ...filters
+        }
+
         const rentalService = container.resolve(RentalService);
-        const result = await rentalService.getAll();
+        const result = await rentalService.getAll(query);
         
         res.status(200).send(result);
     };
