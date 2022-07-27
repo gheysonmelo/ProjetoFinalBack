@@ -14,6 +14,7 @@ import {
     ForeignKey,
     BelongsTo,
     HasMany,
+    Default,
 } from "sequelize-typescript";
 import Address from "./AddressModel";
 import Payment from "./PaymentModel";
@@ -33,29 +34,29 @@ class Customer extends Model {
     @Column(DataType.INTEGER)
     store_id!: number;
 
-    @Length({ max: 60 })
+    @Length({ max: 45 })
     @AllowNull(false)
     @Column(DataType.STRING)
     first_name!: string;
 
-    @Length({ max: 60 })
+    @Length({ max: 45 })
     @AllowNull(false)
     @Column(DataType.STRING)
     last_name!: string;
 
     @IsEmail
-    @Length({ max: 254 })
-    @Unique
+    @Length({ max: 50 })
     @AllowNull(false)
     @Column(DataType.STRING)
     email!: string;
 
     @ForeignKey(() => Address)
-    @AllowNull(true)
+    @AllowNull(false)
     @Column(DataType.INTEGER)
-    addres_id!: number;
+    address_id!: number;
 
     @AllowNull(false)
+    @Default(true)
     @Column(DataType.BOOLEAN)
     activebool!: boolean;
 

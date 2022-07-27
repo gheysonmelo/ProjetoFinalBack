@@ -30,8 +30,6 @@ class CustomerService {
     public deleteById = async (id: number): Promise<boolean> => {
         return await this.CustomerRepository.deleteById(id);
     };
-
-}
+};
 
 export default CustomerService;
-//VAI CHAMAR O REPOSITORIO DE CUSTOMER O DE ADDRES, O DE COUNTRY E O DE CITY

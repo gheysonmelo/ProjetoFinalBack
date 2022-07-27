@@ -9,6 +9,7 @@ import {
     DataType,
     HasMany,
     BelongsTo,
+    ForeignKey,
 } from "sequelize-typescript";
 import Rental from "./RentalModel";
 
@@ -22,6 +23,7 @@ class Inventory extends Model {
     @Column(DataType.INTEGER)
     inventory_id!: number;
 
+    // @ForeignKey(() => Film)
     @AllowNull(false)
     @Column(DataType.INTEGER)
     film_id!: number;

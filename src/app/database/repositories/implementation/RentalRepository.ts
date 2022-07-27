@@ -1,5 +1,5 @@
 import BaseRepository from './BaseRepository';
-import { Rental } from '@/app/database/models';
+import { Customer, Payment, Rental, Staff } from '@/app/database/models';
 import IRentalRepository from '../IRentalRepository';
 import { RentalInput, RentalOutput } from '@/shared/types/interfaces/Rental';
 import Query from '@/shared/types/interfaces/Query';
@@ -21,7 +21,13 @@ class RentalRepository extends BaseRepository<RentalInput, RentalOutput> impleme
       where: {
         ...filters
       },
-      attributes,
+      include: [
+        {model: Payment, attributes: ['customer_id', 'payment_date', 'amount' ], 
+          include: {model: Staff, attributes: ['first_name', 'last_name', 'active']}
+        },
+        {model: Customer, attributes: ['first_name','last_name', 'active']},
+      ],
+      attributes: ['rental_id', 'rental_date', 'return_date'],
       ...pagination
     });
   };

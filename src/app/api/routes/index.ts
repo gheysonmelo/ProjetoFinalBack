@@ -10,5 +10,7 @@ router.use('/auth', authRouter);
 router.use(ensureIsAuthenticated);
 router.use('/customers', customerController);
 router.use('/rentals', rentalController);
+// router.use('/films', filmController);
+
 
 export default router;
