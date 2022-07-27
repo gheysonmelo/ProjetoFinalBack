@@ -6,7 +6,7 @@ import { FilmInput, FilmOutput } from "@/shared/types/interfaces/Film";
 import { Actor, Category, Film, FilmCategory, Language } from "../../models";
 import IFilmRepository from "../IFilmRepository";
 import Query from "@/shared/types/interfaces/Query";
-import { getPagination } from "@/utils/getPagination";
+import { getPagination } from "@/utils/getPagination";;
 
 class FilmRepository 
     extends BaseRepository<FilmInput, FilmOutput> 
@@ -14,7 +14,7 @@ class FilmRepository
 
     constructor() {
         super(Film);
-    };
+    }; 
 
     public async getAll(query: Query, attributes?: string[]): Promise <FilmOutput[]> {
         let {size, page, sort, order, ...filters} = query;
