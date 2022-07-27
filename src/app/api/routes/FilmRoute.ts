@@ -8,7 +8,6 @@ const filmController = new FilmController();
 
 filmRouter.get("/", filmController.getAll);
 filmRouter.get("/relations", filmController.getAllWithRelations);
-filmRouter.get("/language", filmController.getAllWithLanguage);
 filmRouter.get("/:id", filmController.getById);
 
 filmRouter.post("/", FilmCreateValidation, filmController.create);

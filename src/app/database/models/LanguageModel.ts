@@ -2,17 +2,14 @@ import {
     Table,
     Column,
     Model,
-    CreatedAt,
-    UpdatedAt,
-    IsEmail,
-    Length,
     AllowNull,
     Unique,
-    Default,
     AutoIncrement,
     DataType,
     HasMany,
+    UpdatedAt,
 } from "sequelize-typescript";
+
 import { Film } from ".";
 
 @Table({modelName: "language"})
@@ -29,7 +26,7 @@ class Language extends Model {
     @Column({ type: DataType.STRING(20) })
     name!: string;
 
-    @Default(new Date())
+    @UpdatedAt
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;

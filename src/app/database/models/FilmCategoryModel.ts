@@ -2,18 +2,12 @@ import {
     Table,
     Column,
     Model,
-    CreatedAt,
-    UpdatedAt,
-    IsEmail,
-    Length,
     AllowNull,
-    Unique,
-    Default,
-    AutoIncrement,
     DataType,
-    HasMany,
     ForeignKey,
+    UpdatedAt,
 } from "sequelize-typescript";
+
 import { Category, Film } from ".";
 
 @Table({modelName: "film_category"})
@@ -30,7 +24,7 @@ class FilmCategory extends Model {
     @Column({ type: DataType.INTEGER })
     category_id!: number;
 
-    @Default(new Date())
+    @UpdatedAt
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;

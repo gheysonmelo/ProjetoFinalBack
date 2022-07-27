@@ -13,14 +13,10 @@ class FilmService {
 
     public getAll = async (query: Query): Promise<FilmOutput[]> => {
         return await this.FilmRepository.getAll(query);
-    };
+    }; 
 
     public getAllWithRelations = async (): Promise<FilmOutput[]> => {
         return await this.FilmRepository.getAllWithRelations();
-    };
-    
-    public getAllWithLanguage = async (): Promise<FilmOutput[]> => {
-        return await this.FilmRepository.getAllWithLanguage();
     };
 
     public getById = async (id: number, attributes?: string[]): Promise<FilmOutput> => {

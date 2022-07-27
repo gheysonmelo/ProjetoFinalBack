@@ -2,10 +2,6 @@ import {
     Table,
     Column,
     Model,
-    CreatedAt,
-    UpdatedAt,
-    IsEmail,
-    Length,
     AllowNull,
     Unique,
     Default,
@@ -14,8 +10,16 @@ import {
     ForeignKey,
     BelongsTo,
     BelongsToMany,
+    UpdatedAt,
 } from "sequelize-typescript";
-import { Actor, Category, FilmActor, FilmCategory, Language } from ".";
+
+import { 
+    Actor, 
+    Category, 
+    FilmActor, 
+    FilmCategory, 
+    Language 
+} from ".";
 
 @Table({modelName: "film"})
 class Film extends Model {
@@ -63,7 +67,7 @@ class Film extends Model {
     @Column({ type: DataType.STRING }) // datatype: mpaa rating
     rating!: string;
 
-    @Default(new Date())
+    @UpdatedAt
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;
@@ -78,6 +82,9 @@ class Film extends Model {
     // Relations
     @BelongsTo(() => Language)
     language!: Language;
+
+    // @HasMany(() => Inventory)    uncomment on merge
+    // inventories!: Inventory[]
 
     @BelongsToMany(() => Category, () => FilmCategory)
     categories!: Category[];
