@@ -40,6 +40,6 @@ class User extends Model {
 
     @UpdatedAt
     updatedAt!: Date;
-}
+};
 
 export default User;

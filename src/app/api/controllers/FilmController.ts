@@ -28,13 +28,6 @@ class FilmController {
         res.status(200).send(result);
     };
 
-    public async getAllWithLanguage(req: Request, res: Response): Promise<void> {
-        const filmService = container.resolve(FilmService);
-        const result = await filmService.getAllWithLanguage();
-
-        res.status(200).send(result);
-    };
-
     public async getById(req: Request, res: Response): Promise<void> {
         const filmService = container.resolve(FilmService);
         const result = await filmService.getById(parseInt(req.params.id), req.body);

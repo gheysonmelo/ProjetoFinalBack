@@ -2,19 +2,12 @@ import {
     Table,
     Column,
     Model,
-    CreatedAt,
-    UpdatedAt,
-    IsEmail,
-    Length,
     AllowNull,
-    Unique,
-    Default,
     AutoIncrement,
     DataType,
-    HasMany,
-    BelongsTo,
     BelongsToMany,
 } from "sequelize-typescript";
+
 import { Film, FilmActor } from ".";
 
 @Table({modelName: "actor"})
@@ -34,7 +27,6 @@ class Actor extends Model {
     @Column({ type: DataType.STRING(45) })
     last_name!: string;
 
-    @Default(new Date())
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;
