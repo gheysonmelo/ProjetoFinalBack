@@ -1,11 +1,22 @@
 import { container } from 'tsyringe';
 import { FilmService } from '@/app/business/services';
 import { Request, Response } from 'express';
+import Query from '@/shared/types/interfaces/Query';
 
 class FilmController {
     public async getAll(req: Request, res: Response): Promise<void> {
+        
+        const {size, page, sort, order, ...filters} = req.query;
+        const query: Query = {
+            size: parseInt(req.query.size as string),
+            page: parseInt(req.query.page as string),
+            sort: req.query.sort as string,
+            order: req.query.order as string,
+            ...filters
+        };
+
         const filmService = container.resolve(FilmService);
-        const result = await filmService.getAll(req.body);
+        const result = await filmService.getAll(query);
 
         res.status(200).send(result);
     };

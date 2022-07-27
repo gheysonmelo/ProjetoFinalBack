@@ -1,6 +1,7 @@
 import { Model } from "sequelize-typescript";
 import { ResourceNotFoundError } from "@/shared/errors/";
 import IBaseRepository from "../IBaseRepository";
+import Query from "@/shared/types/interfaces/Query";
 
 // TODO: Find a way to remove the @ts-ignore comments without getting any errors
 abstract class SequelizeBaseRepository<Input, Output>
@@ -8,7 +9,7 @@ abstract class SequelizeBaseRepository<Input, Output>
 {
     constructor(protected model: typeof Model) {}
 
-    public async getAll(attributes?: string[]): Promise<Output[]> {
+    public async getAll(query: Query, attributes?: string[]): Promise<Output[]> {
         // @ts-ignore
         return this.model.findAll({
             attributes,

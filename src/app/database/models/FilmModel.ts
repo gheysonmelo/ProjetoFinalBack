@@ -53,7 +53,7 @@ class Film extends Model {
     rental_rate!: number;
 
     @Column({ type: DataType.INTEGER })
-    lenght!: number;
+    length!: number;
 
     @Default(19.99)
     @AllowNull(false)
@@ -74,17 +74,6 @@ class Film extends Model {
     @AllowNull(false)
     @Column({ type: DataType.TSVECTOR })
     fulltext!: string;
-
-    // @Default(false)
-    // @AllowNull(false)
-    // @Column
-    // active!: boolean;
-
-    // @CreatedAt
-    // createdAt!: Date;
-
-    // @UpdatedAt
-    // updatedAt!: Date;
 
     // Relations
     @BelongsTo(() => Language)

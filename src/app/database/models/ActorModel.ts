@@ -39,17 +39,6 @@ class Actor extends Model {
     @Column({ type: DataType.DATE })
     last_update!: Date;
 
-    // @Default(false)
-    // @AllowNull(false)
-    // @Column
-    // active!: boolean;
-
-    // @CreatedAt
-    // createdAt!: Date;
-
-    // @UpdatedAt
-    // updatedAt!: Date;
-
     // Relations
     @BelongsToMany(() => Film, () => FilmActor)
     films!: Film[];

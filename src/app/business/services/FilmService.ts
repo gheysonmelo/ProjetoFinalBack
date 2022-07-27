@@ -2,6 +2,7 @@ import { inject, injectable } from "tsyringe";
 import { IFilmRepository } from "../../database/repositories";
 import { FilmInput, FilmOutput } from "@/shared/types/interfaces/Film";
 import { Model } from "sequelize-typescript";
+import Query from "@/shared/types/interfaces/Query";
 
 @injectable()
 class FilmService {
@@ -10,8 +11,8 @@ class FilmService {
         private readonly FilmRepository: IFilmRepository
     ) {};
 
-    public getAll = async (attributes?: string[]): Promise<FilmOutput[]> => {
-        return await this.FilmRepository.getAll(attributes);
+    public getAll = async (query: Query): Promise<FilmOutput[]> => {
+        return await this.FilmRepository.getAll(query);
     };
 
     public getAllWithRelations = async (): Promise<FilmOutput[]> => {
