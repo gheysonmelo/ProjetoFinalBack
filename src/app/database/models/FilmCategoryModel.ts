@@ -5,6 +5,7 @@ import {
     AllowNull,
     DataType,
     ForeignKey,
+    UpdatedAt,
 } from "sequelize-typescript";
 
 import { Category, Film } from ".";
@@ -23,6 +24,7 @@ class FilmCategory extends Model {
     @Column({ type: DataType.INTEGER })
     category_id!: number;
 
+    @UpdatedAt
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;

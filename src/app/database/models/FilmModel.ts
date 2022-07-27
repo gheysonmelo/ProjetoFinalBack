@@ -10,6 +10,7 @@ import {
     ForeignKey,
     BelongsTo,
     BelongsToMany,
+    UpdatedAt,
 } from "sequelize-typescript";
 
 import { 
@@ -66,6 +67,7 @@ class Film extends Model {
     @Column({ type: DataType.STRING }) // datatype: mpaa rating
     rating!: string;
 
+    @UpdatedAt
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;

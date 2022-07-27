@@ -7,6 +7,7 @@ import {
     AutoIncrement,
     DataType,
     HasMany,
+    UpdatedAt,
 } from "sequelize-typescript";
 
 import { Film } from ".";
@@ -25,6 +26,7 @@ class Language extends Model {
     @Column({ type: DataType.STRING(20) })
     name!: string;
 
+    @UpdatedAt
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;

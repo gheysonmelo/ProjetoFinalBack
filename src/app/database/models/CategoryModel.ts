@@ -7,6 +7,7 @@ import {
     AutoIncrement,
     DataType,
     BelongsToMany,
+    UpdatedAt,
 } from "sequelize-typescript";
 
 import { Film, FilmCategory } from ".";
@@ -25,6 +26,7 @@ class Category extends Model {
     @Column({ type: DataType.STRING(25) })
     name!: string;
 
+    @UpdatedAt
     @AllowNull(false)
     @Column({ type: DataType.DATE })
     last_update!: Date;
